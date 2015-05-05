@@ -109,4 +109,13 @@ Methods Example:
          }
     };
 
+## Authors
 
+  - [Peter A Tariche](https://github.com/ptariche)
+
+# License
+
+  MIT
+
+[npm-image]: https://img.shields.io/npm/v/koa-waterline.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/koa-waterline
