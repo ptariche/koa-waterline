@@ -1,1 +1,1 @@
-module.exports = require('./lib/koa-waterline.js');
+exports = module.exports = require('./lib/koa-waterline.js');

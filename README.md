@@ -1,5 +1,5 @@
 # koa-waterline
-  Middleware for your hose 
+  Middleware for your hose
   [![NPM version][npm-image]][npm-url]
 
     npm install koa-waterline
@@ -16,8 +16,16 @@
       console.log(commentCreated);
     }
 
+    // OR
+
+    function* () {
+      var waterline      = Waterline.init(injection);
+      var message        = 'This is an example';
+      var commentCreated = yield waterline.collections.comments.create({message: message});
+    }
+
    * The model attributes of connection and adp must match the connection and adapter naming conventions when setting up your environment to inject into the middleware.
-    
+
 ## Example
 
     var connections= {
@@ -31,8 +39,8 @@
       mongo: {
         adapter: "mongo",
         host: 'localhost',
-        port: '27017', 
-        user: '', 
+        port: '27017',
+        user: '',
         password: '',
         database: 'waterline'
       }
@@ -41,9 +49,9 @@
     var adapters= {
       couch: require('sails-couchdb-orm'),
       mongo: require('sails-mongo')
-    }; 
+    };
 
-    var models = { 
+    var models = {
       "models": {
         "comments": {
           "adp": "couch",
@@ -75,7 +83,7 @@
 
     var injection               = {};
     injection.methods           = false;
-    injection.models            = models; 
+    injection.models            = models;
     injection.adapters          = adapters;
     injection.connections       = connections
 
@@ -85,21 +93,21 @@
 ##Attributes
 *Models* - Required
 
-    - Models must have an adp, connection, and the properties attributes with the same design pattern in the example above. 
-    
+    - Models must have an adp, connection, and the properties attributes with the same design pattern in the example above.
+
 *Adapters* - Required
 
-    - The adapters refer to the connection adapters; this is required and while seeming redundant it is required to run waterline 
-    
+    - The adapters refer to the connection adapters; this is required and while seeming redundant it is required to run waterline
+
 *Connections* - Required
 
     - The connection attributes are the setting parameters for the data models to create the waterline.
 *Methods* - Optional
 
-     - The methods attribute allows the injection of functions for virtual methods inside the model. An example of such an injection would something like this: 
-     
+     - The methods attribute allows the injection of functions for virtual methods inside the model. An example of such an injection would something like this:
+
 Methods Example:
-     
+
      var methods = {
          history: function(){
          //virtual methods specific to the history model
