@@ -14,8 +14,8 @@ var connections = {
   mongo: {
     adapter: "mongo",
     host: 'localhost',
-    port: '27017', 
-    user: '', 
+    port: '27017',
+    user: '',
     password: '',
     database: 'waterline'
   }
@@ -24,9 +24,9 @@ var connections = {
 var adapters = {
   couch: require('sails-couchdb-orm'),
   mongo: require('sails-mongo')
-}; 
+};
 
-var models = { 
+var models = {
     "comments": {
       "adp": "couch",
       "connection": "couch",
@@ -53,12 +53,11 @@ var models = {
 
 var injection               = {};
 injection.methods           = false;
-injection.models            = models; 
+injection.models            = models;
 injection.adapters          = adapters;
 injection.connections       = connections
 
 app.use(waterline(injection));
-
 
 app.use(function* () {
   var ctx            = this;
