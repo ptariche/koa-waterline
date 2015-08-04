@@ -1,7 +1,7 @@
 var koa       = require('koa');
 var waterline = require('./lib/koa-waterline.js');
 
-var app = koa();
+var app       = koa();
 
 var connections = {
   couch: {
@@ -27,29 +27,29 @@ var adapters = {
 };
 
 var models = {
-    "comments": {
-      "adp": "couch",
-      "connection": "couch",
-      "properties": {
-        "archived": {
-            "type": "boolean",
-            "defaultValue": false
-        },
-        "message": {
-            "type": "string"
-        }
-      }
-    },
-    "history": {
-      "adp": "mongo",
-      "connection": "mongo",
-      "properties": {
-        "year": {
-          "type": "number"
-        }
+  "comments": {
+    "adp": "couch",
+    "connection": "couch",
+    "properties": {
+      "archived": {
+          "type": "boolean",
+          "defaultValue": false
+      },
+      "message": {
+          "type": "string"
       }
     }
-  };
+  },
+  "history": {
+    "adp": "mongo",
+    "connection": "mongo",
+    "properties": {
+      "year": {
+        "type": "number"
+      }
+    }
+  }
+};
 
 var injection               = {};
 injection.methods           = false;

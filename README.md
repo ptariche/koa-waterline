@@ -1,10 +1,6 @@
 # koa-waterline
   Middleware for your hose
-  
-  
-[![NPM](https://nodei.co/npm/koa-waterline.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/koa-waterline/) [![NPM](https://nodei.co/npm-dl/koa-waterline.png?months=6&height=3)](https://nodei.co/npm/koa-waterline/)
-
-
+  [![NPM version][npm-image]][npm-url]
 
     npm install koa-waterline
 
@@ -32,7 +28,7 @@
 
 ## Example
 
-    var connections= {
+    var connections = {
       couch: {
         adapter: "couch",
         host: '127.0.0.1',
@@ -50,7 +46,7 @@
       }
     };
 
-    var adapters= {
+    var adapters = {
       couch: require('sails-couchdb-orm'),
       mongo: require('sails-mongo')
     };
@@ -73,11 +69,8 @@
         "adp": "mongo",
         "connection": "mongo",
         "properties": {
-          "activity_id": {
-            "type": "number",
-            "enum": [
-                "unique"
-            ]
+          "year": {
+            "type": "number"
           }
         }
       }
@@ -127,3 +120,5 @@ Methods Example:
 
   MIT
 
+[npm-image]: https://img.shields.io/npm/v/koa-waterline.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/koa-waterline
