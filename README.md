@@ -56,30 +56,28 @@
     };
 
     var models = {
-      "models": {
-        "comments": {
-          "adp": "couch",
-          "connection": "couch",
-          "properties": {
-            "archived": {
-                "type": "boolean",
-                "defaultValue": false
-            },
-            "message": {
-                "type": "string"
-            }
+      "comments": {
+        "adp": "couch",
+        "connection": "couch",
+        "properties": {
+          "archived": {
+              "type": "boolean",
+              "defaultValue": false
+          },
+          "message": {
+              "type": "string"
           }
-        },
-        "history": {
-          "adp": "mongo",
-          "connection": "mongo",
-          "properties": {
-            "activity_id": {
-              "type": "number",
-              "enum": [
-                  "unique"
-              ]
-            }
+        }
+      },
+      "history": {
+        "adp": "mongo",
+        "connection": "mongo",
+        "properties": {
+          "activity_id": {
+            "type": "number",
+            "enum": [
+                "unique"
+            ]
           }
         }
       }
