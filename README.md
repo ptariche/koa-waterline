@@ -1,7 +1,7 @@
 # koa-waterline
   Middleware for your hose
-  
-  
+
+
 [![NPM](https://nodei.co/npm/koa-waterline.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/koa-waterline/) [![NPM](https://nodei.co/npm-dl/koa-waterline.png?months=6&height=3)](https://nodei.co/npm/koa-waterline/)
 
 
@@ -32,7 +32,7 @@
 
 ## Example
 
-    var connections= {
+    var connections = {
       couch: {
         adapter: "couch",
         host: '127.0.0.1',
@@ -47,55 +47,79 @@
         user: '',
         password: '',
         database: 'waterline'
+      },
+      cassandra: {
+        adapter: "cassandra",
+        host: '',
+        password: '',
+        contactPoints: ['127.0.0.1'],
+        keyspace: 'dev'
       }
     };
 
-    var adapters= {
-      couch: require('sails-couchdb-orm'),
-      mongo: require('sails-mongo')
+    var adapters = {
+      couch:     require('sails-couchdb-orm'),
+      mongo:     require('sails-mongo'),
+      cassandra: require('sails-cassandra')
     };
 
     var models = {
-      "comments": {
-        "adp": "couch",
-        "connection": "couch",
-        "properties": {
-          "archived": {
-              "type": "boolean",
-              "defaultValue": false
-          },
-          "message": {
+        "comments": {
+          "model": true,
+          "adp": "couch",
+          "connection": "couch",
+          "properties": {
+            "archived": {
+                "type": "boolean",
+                "defaultValue": false
+            },
+            "message": {
+                "type": "string"
+            }
+          }
+        },
+        "history": {
+          "model" : true,
+          "adp": "mongo",
+          "connection": "mongo",
+          "properties": {
+            "year": {
               "type": "string"
+            }
+          }
+        },
+        "tweet": {
+          "adp": "cassandra",
+          "connection": "cassandra",
+          "index": ['tweet_body'],
+          "properties": {
+            "tweet_body": {
+              "type": "string"
+            }
+          }
+        },
+        "error": {
+          "model": false,
+          "properties": {
+            "erro": {
+              "type": "string"
+            }
           }
         }
-      },
-      "history": {
-        "adp": "mongo",
-        "connection": "mongo",
-        "properties": {
-          "activity_id": {
-            "type": "number",
-            "enum": [
-                "unique"
-            ]
-          }
-        }
-      }
-    };
+      };
 
     var injection               = {};
     injection.methods           = false;
     injection.models            = models;
     injection.adapters          = adapters;
-    injection.connections       = connections
+    injection.connections       = connections;
 
     app.use(waterline(injection));
-
 
 ##Attributes
 *Models* - Required
 
-    - Models must have an adp, connection, and the properties attributes with the same design pattern in the example above.
+    - Models must have an adp, connection, and the properties attributes with the same design pattern in the example above. There is an optional model flag that can be added inside the model that should be set to true or false; this allows you to not instiatiate specific models in waterline.
 
 *Adapters* - Required
 
@@ -119,6 +143,12 @@ Methods Example:
          }
     };
 
+## Notes
+    - Sails Cassandra fails the next time it's initialized because it attempts to over-ride; restart the service again until the actual sails-cassandra has been fixed
+
+## Debug
+    - DEBUG=koa-waterline node --harmony example.js
+
 ## Authors
 
   - [Peter A Tariche](https://github.com/ptariche)
@@ -126,4 +156,3 @@ Methods Example:
 # License
 
   MIT
-

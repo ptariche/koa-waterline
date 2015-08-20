@@ -1,6 +1,6 @@
 {
   "name": "koa-waterline",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "middleware for your hose",
   "main": "index.js",
   "scripts": {
@@ -22,11 +22,14 @@
   },
   "homepage": "https://github.com/ptariche/koa-waterline",
   "dependencies": {
+    "debug": "^2.2.0",
     "lodash": "^3.6.0",
     "waterline": "^0.10.21"
   },
   "devDependencies": {
     "co": "^4.5.4",
+    "koa": "^0.21.0",
+    "sails-cassandra": "^0.10.10",
     "sails-couchdb-orm": "^0.10.3",
     "sails-mongo": "^0.11.2"
   }
