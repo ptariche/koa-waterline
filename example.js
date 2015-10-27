@@ -5,14 +5,14 @@ var app       = koa();
 
 var connections = {
   couch: {
-    adapter: "couch",
+    adapter: 'couch',
     host: '127.0.0.1',
     port: '5984',
     username: '',
     password: ''
   },
   mongo: {
-    adapter: "mongo",
+    adapter: 'mongo',
     host: 'localhost',
     port: '27017',
     user: '',
@@ -20,7 +20,7 @@ var connections = {
     database: 'waterline'
   },
   cassandra: {
-    adapter: "cassandra",
+    adapter: 'cassandra',
     host: '',
     password: '',
     contactPoints: ['127.0.0.1'],
@@ -35,45 +35,46 @@ var adapters = {
 };
 
 var models = {
-    "comments": {
-      "model": true,
-      "adp": "couch",
-      "connection": "couch",
-      "properties": {
-        "archived": {
-            "type": "boolean",
-            "defaultValue": false
+  'comments': {
+      'model': true,
+      'adp': 'couch',
+      'connection': 'couch',
+      'properties': {
+        'archived': {
+          'type': 'boolean',
+          'defaultValue': false
         },
-        "message": {
-            "type": "string"
+        'message': {
+          'type': 'string'
         }
       }
     },
-    "history": {
-      "model" : true,
-      "adp": "mongo",
-      "connection": "mongo",
-      "properties": {
-        "year": {
-          "type": "string"
+  'history': {
+      'model': true,
+      'adp': 'mongo',
+      'connection': 'mongo',
+      'properties': {
+        'year': {
+          'lowercase': true,
+          'type': 'string'
         }
       }
     },
-    "tweet": {
-      "adp": "cassandra",
-      "connection": "cassandra",
-      "index": ['tweet_body'],
-      "properties": {
-        "tweet_body": {
-          "type": "string"
+  'tweet': {
+      'adp': 'cassandra',
+      'connection': 'cassandra',
+      'index': ['tweet_body'],
+      'properties': {
+        'tweet_body': {
+          'type': 'string'
         }
       }
     },
-    "error": {
-      "model": false,
-      "properties": {
-        "erro": {
-          "type": "string"
+  'error': {
+      'model': false,
+      'properties': {
+        'erro': {
+          'type': 'string'
         }
       }
     }
@@ -95,7 +96,7 @@ app.use(function* () {
   console.log(commentCreated);
 
   var year           = '1976';
-  var createHistory  = yield ctx._waterline.collections.history.create({year : year});
+  var createHistory  = yield ctx._waterline.collections.history.create({year: year});
   console.log(createHistory);
 
   var new_tweet     = 'this is my example tweet!';
