@@ -24,7 +24,7 @@
   "dependencies": {
     "debug": "^2.2.0",
     "lodash": "^3.6.0",
-    "waterline": "^0.10.21"
+    "waterline": "^0.10.26"
   },
   "devDependencies": {
     "co": "^4.5.4",
