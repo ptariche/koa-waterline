@@ -23,7 +23,7 @@
   "homepage": "https://github.com/ptariche/koa-waterline",
   "dependencies": {
     "debug": "^2.2.0",
-    "lodash": "^4.0.0",
+    "lodash": "^3.10.1",
     "waterline": "^0.10.26"
   },
   "devDependencies": {
