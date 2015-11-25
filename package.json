@@ -1,6 +1,6 @@
 {
   "name": "koa-waterline",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "description": "middleware for your hose",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "dependencies": {
     "debug": "^2.2.0",
     "lodash": "^3.10.1",
+    "thenify": "^3.1.1",
     "waterline": "^0.10.26"
   },
   "devDependencies": {
