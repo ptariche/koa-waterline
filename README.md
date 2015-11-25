@@ -23,7 +23,7 @@
     // OR
 
     function* () {
-      var waterline      = Waterline.init(injection);
+      var waterline      = yield Waterline.init(injection);
       var message        = 'This is an example';
       var commentCreated = yield waterline.collections.comments.create({message: message});
     }
