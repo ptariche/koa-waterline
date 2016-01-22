@@ -11,7 +11,7 @@
 ## Usage
 
     //see example.js
-
+  ```js
     function* (){
       var ctx            = this;
       var message        = 'This is an example';
@@ -19,19 +19,19 @@
       // You can yield to the CRUD waterline functions because they are written as promises.
       console.log(commentCreated);
     }
-
+  ```
     // OR
-
+  ```js
     function* () {
       var waterline      = yield Waterline.init(injection);
       var message        = 'This is an example';
       var commentCreated = yield waterline.collections.comments.create({message: message});
     }
-
+  ```
    * The model attributes of connection and adp must match the connection and adapter naming conventions when setting up your environment to inject into the middleware.
 
 ## Example
-
+  ```js
     var connections = {
       couch: {
         adapter: "couch",
@@ -115,7 +115,7 @@
     injection.connections       = connections;
 
     app.use(waterline(injection));
-
+  ```
 ##Attributes
 *Models* - Required
 
