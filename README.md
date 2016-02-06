@@ -13,9 +13,9 @@
     //see example.js
   ```js
     function* (){
-      var ctx            = this;
-      var message        = 'This is an example';
-      var commentCreated = yield ctx._waterline.collections.comments.create({message: message});
+      let ctx            = this;
+      let message        = 'This is an example';
+      let commentCreated = yield ctx._waterline.collections.comments.create({message: message});
       // You can yield to the CRUD waterline functions because they are written as promises.
       console.log(commentCreated);
     }
@@ -23,16 +23,16 @@
     // OR
   ```js
     function* () {
-      var waterline      = yield Waterline.init(injection);
-      var message        = 'This is an example';
-      var commentCreated = yield waterline.collections.comments.create({message: message});
+      let waterline      = yield Waterline.init(injection);
+      let message        = 'This is an example';
+      let commentCreated = yield waterline.collections.comments.create({message: message});
     }
   ```
    * The model attributes of connection and adp must match the connection and adapter naming conventions when setting up your environment to inject into the middleware.
 
 ## Example
   ```js
-    var connections = {
+    let connections = {
       couch: {
         adapter: "couch",
         host: '127.0.0.1',
@@ -57,13 +57,13 @@
       }
     };
 
-    var adapters = {
+    let adapters = {
       couch:     require('sails-couchdb-orm'),
       mongo:     require('sails-mongo'),
       cassandra: require('sails-cassandra')
     };
 
-    var models = {
+    let models = {
         "comments": {
           "model": true,
           "adp": "couch",
@@ -108,7 +108,7 @@
         }
       };
 
-    var injection               = {};
+    let injection               = {};
     injection.methods           = false;
     injection.models            = models;
     injection.adapters          = adapters;
