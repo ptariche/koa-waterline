@@ -134,7 +134,7 @@
 
 Methods Example:
 
-     var methods = {
+     let methods = {
          history: function(){
          //virtual methods specific to the history model
          },
