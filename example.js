@@ -6,13 +6,6 @@ let waterline = require('./lib/koa-waterline.js');
 const APP = koa();
 
 let connections = {
-  couch: {
-    adapter: 'couch',
-    host: '127.0.0.1',
-    port: '5984',
-    username: '',
-    password: ''
-  },
   mongo: {
     adapter: 'mongo',
     host: 'localhost',
@@ -20,37 +13,30 @@ let connections = {
     user: '',
     password: '',
     database: 'waterline'
-  },
-  cassandra: {
-    adapter: 'cassandra',
-    host: '',
-    password: '',
-    contactPoints: ['127.0.0.1'],
-    keyspace: 'dev'
   }
 };
 
 let adapters = {
-  couch:     require('sails-couchdb-orm'),
+  // couch:     require('sails-couchdb-orm'),
   mongo:     require('sails-mongo'),
-  cassandra: require('sails-cassandra')
+  // cassandra: require('sails-cassandra')
 };
 
 let models = {
-  comments: {
-      model: true,
-      adp: 'couch',
-      connection: 'couch',
-      properties: {
-        archived: {
-          type: 'boolean',
-          defaultValue: false
-        },
-        message: {
-          type: 'string'
-        }
-      }
-    },
+  // comments: {
+  //     model: true,
+  //     adp: 'couch',
+  //     connection: 'couch',
+  //     properties: {
+  //       archived: {
+  //         type: 'boolean',
+  //         defaultValue: false
+  //       },
+  //       message: {
+  //         type: 'string'
+  //       }
+  //     }
+  //   },
   history: {
       model: true,
       adp: 'mongo',
@@ -62,16 +48,16 @@ let models = {
         }
       }
     },
-  tweet: {
-      adp: 'cassandra',
-      connection: 'cassandra',
-      index: ['tweet_body'],
-      properties: {
-        tweet_body: {
-          type: 'string'
-        }
-      }
-    },
+  // tweet: {
+  //     adp: 'cassandra',
+  //     connection: 'cassandra',
+  //     index: ['tweet_body'],
+  //     properties: {
+  //       tweet_body: {
+  //         type: 'string'
+  //       }
+  //     }
+  //   },
   error: {
       model: false,
       properties: {
@@ -92,18 +78,18 @@ APP.use(waterline(injection));
 
 APP.use(function * () {
   let ctx            = this;
-  let message        = 'This is an example';
-  let commentCreated = yield ctx._waterline.collections.comments.create({message: message});
-  // You can yield to the CRUD waterline functions because they are written as promises.
-  console.log(commentCreated);
+  // let message        = 'This is an example';
+  // let commentCreated = yield ctx._waterline.collections.comments.create({message: message});
+  // // You can yield to the CRUD waterline functions because they are written as promises.
+  // console.log(commentCreated);
 
   let year           = '1976';
   let createHistory  = yield ctx._waterline.collections.history.create({year: year});
   console.log(createHistory);
-
-  let new_tweet     = 'this is my example tweet!';
-  let createTweet   = yield ctx._waterline.collections.tweet.create({tweet_body: new_tweet});
-  console.log(createTweet);
+  //
+  // let new_tweet     = 'this is my example tweet!';
+  // let createTweet   = yield ctx._waterline.collections.tweet.create({tweet_body: new_tweet});
+  // console.log(createTweet);
 
 });
 

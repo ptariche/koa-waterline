@@ -1,0 +1,9 @@
+version: v1.5.2
+ignore: {}
+patch:
+  'npm:negotiator:20160616':
+    - koa > accepts > negotiator:
+        patched: '2016-12-01T01:01:42.395Z'
+  'npm:minimatch:20160620':
+    - waterline > prompt > utile > rimraf > glob > minimatch:
+        patched: '2016-12-01T01:01:42.395Z'
