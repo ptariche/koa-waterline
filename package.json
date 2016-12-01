@@ -25,13 +25,13 @@
     "debug": "^2.2.0",
     "lodash": "^4.2.1",
     "thenify": "^3.1.1",
-    "waterline": "^0.10.31"
+    "waterline": "^0.11.6"
   },
   "devDependencies": {
     "co": "^4.5.4",
-    "koa": "^0.21.0",
-    "sails-cassandra": "^0.10.10",
+    "koa": "^1.2.4",
+    "sails-cassandra": "^0.12.8",
     "sails-couchdb-orm": "^0.10.3",
-    "sails-mongo": "^0.11.2"
+    "sails-mongo": "^0.12.1"
   }
 }
