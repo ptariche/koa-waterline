@@ -1,6 +1,6 @@
 {
   "name": "koa-waterline",
-  "version": "4.3.0",
+  "version": "4.3.1",
   "description": "middleware for your hose",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/ptariche/koa-waterline",
   "dependencies": {
-    "debug": "^2.4.0",
+    "debug": "^2.4.5",
     "lodash": "^4.2.1",
     "waterline": "^0.11.6"
   },
