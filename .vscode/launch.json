@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Program",
+      "type": "node2",
+      "request": "launch",
+      "program": "${workspaceRoot}/example.js",
+      "cwd": "${workspaceRoot}"
+    },
+    {
+      "name": "Attach to Process",
+      "type": "node2",
+      "request": "attach",
+      "port": 9229
+    }
+  ]
+}
