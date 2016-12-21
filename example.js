@@ -85,11 +85,13 @@ APP.use(function * () {
 
   let year           = '1976';
   let createHistory  = yield ctx._waterline.collections.history.create({year: year});
+
   console.log(createHistory);
   //
   // let new_tweet     = 'this is my example tweet!';
   // let createTweet   = yield ctx._waterline.collections.tweet.create({tweet_body: new_tweet});
   // console.log(createTweet);
+  this.body = [createHistory];
 
 });
 
