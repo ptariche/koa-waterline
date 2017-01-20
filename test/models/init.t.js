@@ -2,14 +2,14 @@ let mocha = require('mocha')
 let como = require('co-mocha')
 const request = require('request')
 const assert = require('assert')
-const couchdb_url = 'http://localhost:5984'
+const couchdb_url = 'http://localhost:5984/'
 const users_tbl = 'users_wkoa_test'
 
 como(mocha)
 
 //Erlang init:restart()
 function startCouch (done) {
-  request.post(couchdb_url + '/_restart', function (e, r) {
+  request.post(`${couchdb_url}_restart`, function (e, r) {
     if (e) {
       console.log('problem restarting couch')
       throw e
@@ -20,11 +20,11 @@ function startCouch (done) {
 }
 
 function cleanCouch (done) {
-  request.del(couchdb_url + '/' + users_tbl, done)
+  request.del(couchdb_url + users_tbl, done)
 }
 
 function queryCouch (model, query) {
-  request.get(`http://localhost:5984/${model}`, function (err, resp) {
+  request.get(couchdb_url + model, function (err, resp) {
     if (err) throw err
     return query(JSON.parse(resp.body))
   })
