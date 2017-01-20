@@ -4,7 +4,7 @@
   "description": "middleware for your hose",
   "main": "index.js",
   "scripts": {
-    "test": "snyk test",
+    "test": "snyk test && mocha test/*",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
