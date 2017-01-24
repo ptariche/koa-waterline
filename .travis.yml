@@ -15,5 +15,4 @@ node_js:
   - "7"
 script:
   - npm install
-  - snyk auth
   - npm test
