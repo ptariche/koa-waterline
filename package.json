@@ -1,6 +1,6 @@
 {
   "name": "koa-waterline",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "middleware for your hose",
   "main": "index.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "co-mocha": "^1.1.3",
     "koa": "^1.2.4",
     "mocha": "^3.2.0",
+    "request": "^2.79.0",
     "sails-cassandra": "^0.12.8",
     "sails-couchdb-orm": "^0.10.3",
     "sails-mongo": "^0.12.2",
