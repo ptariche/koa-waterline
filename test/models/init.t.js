@@ -1,3 +1,5 @@
+'use strict';
+
 let mocha = require('mocha');
 let como = require('co-mocha');
 const request = require('request');
