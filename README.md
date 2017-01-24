@@ -1,9 +1,9 @@
 # koa-waterline
   Middleware for your hose
 
+[![Build Status](https://travis-ci.org/ptariche/koa-waterline.svg?branch=master)](https://travis-ci.org/ptariche/koa-waterline)
 
-[![NPM](https://nodei.co/npm/koa-waterline.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/koa-waterline/) [![NPM](https://nodei.co/npm-dl/koa-waterline.png?months=6&height=3)](https://nodei.co/npm/koa-waterline/)
-
+[![NPM](https://nodei.co/npm/koa-waterline.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/koa-waterline/) 
 
 
     npm install koa-waterline
