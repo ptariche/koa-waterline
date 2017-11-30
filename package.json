@@ -37,7 +37,7 @@
     "sails-cassandra": "^0.12.8",
     "sails-couchdb-orm": "^0.10.3",
     "sails-mongo": "^0.12.2",
-    "snyk": "^1.24.6"
+    "snyk": "^1.52.1"
   },
   "snyk": true
 }
